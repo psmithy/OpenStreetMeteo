@@ -19,13 +19,15 @@ weather_url = "https://api.open-meteo.com/v1/forecast"
 weather_params = {
     "latitude": lat,
 	"longitude": lon,
-	"hourly": "temperature_2m",
+    "current": ["temperature_2m", "precipitation", "wind_speed_10m", "wind_direction_10m"],
+	"hourly": ["temperature_2m", "precipitation", "wind_speed_10m", "wind_direction_10m"],
     "timezone": "auto",
     "forecast_days": 1
 }
 
 weather_request = requests.get(url=weather_url, params=weather_params)
 weather_json = weather_request.json()
-weather_dict = weather_json[0]
 
-print(weather_dict)
+current_weather = weather_json["current"]
+
+print(current_weather)
