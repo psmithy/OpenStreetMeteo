@@ -1,5 +1,6 @@
 import sys
 import requests
+from tabulate import tabulate
 
 input_city = sys.argv[1]
 geocoding_url = "https://nominatim.openstreetmap.org/search"
@@ -28,6 +29,19 @@ weather_params = {
 weather_request = requests.get(url=weather_url, params=weather_params)
 weather_json = weather_request.json()
 
-current_weather = weather_json["current"]
+#hourly_timestamps = weather_json["hourly"]["time"]
+#hourly_temps = []
+#hourly_precipitation = []
+#hourly_wind_speed = []
+#hourly_wind_direction = []
 
-print(current_weather)
+hourly_table_headers = ["Date & Time", "Temperature (C)", "Precipitation (mm)", "Wind Speed (kph)", "Wind Direction (degrees)"]
+hourly_table_data = zip(
+    weather_json["hourly"]["time"],
+    weather_json["hourly"]["temperature_2m"],
+    weather_json["hourly"]["precipitation"],
+    weather_json["hourly"]["wind_speed_10m"],
+    weather_json["hourly"]["wind_direction_10m"]
+)
+
+print(tabulate(hourly_table_data, headers = hourly_table_headers))
