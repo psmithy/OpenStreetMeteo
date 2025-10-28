@@ -2,7 +2,9 @@
 
 ## About
 
-This is a Python project I started to practice formatting API requests and building command line tools. It might become the basis for more projects later on. 🙂
+This project provides weather.py, a command line tool that takes in the name of a location as an argument, geocodes it using the Nominatim API, and pulls weather data for the location from Open-Meteo. Currently it returns hourly weather data for the current day printed in a table.
+
+I started this project to practice formatting API requests and building command line tools. It might become the basis for more of my projects later on. 🙂
 
 ## Usage
 
@@ -18,6 +20,6 @@ The API request uses Nominatim's [free form queries](https://nominatim.org/relea
 
 ## APIs
 
-Geocoding: [OpenStreetMap Nominatim](https://nominatim.org/)
+Geocoding: OpenStreetMap Nominatim [(Website)](https://nominatim.org/) [(GitHub)](https://github.com/osm-search/Nominatim)
 
-Weather: [Open-Meteo](https://open-meteo.com/)
+Weather: Open-Meteo [(Website)](https://open-meteo.com/) [(GitHub)](https://github.com/open-meteo/open-meteo)
