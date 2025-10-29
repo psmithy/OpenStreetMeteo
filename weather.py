@@ -38,4 +38,9 @@ hourly_table_data = zip(
     weather_json["hourly"]["wind_direction_10m"]
 )
 
-print(tabulate(hourly_table_data, headers = hourly_table_headers))
+if len(sys.argv) > 2:
+    hourly_tablefmt = sys.argv[2]
+else:
+    hourly_tablefmt = "rounded_grid"
+
+print(tabulate(hourly_table_data, headers = hourly_table_headers, tablefmt=hourly_tablefmt))
